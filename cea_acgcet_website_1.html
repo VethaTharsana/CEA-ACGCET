@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Civil Engineering Association — ACGCET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --concrete-light:#E4E2DC;
+    --concrete-mid:#C9C6BE;
+    --concrete-dark:#4A4A47;
+    --steel-blue:#2F5C8A;
+    --steel-blue-dark:#234868;
+    --charcoal:#2B2B2B;
+    --off-white:#F7F6F3;
+    --line:#D3D1C9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;color:var(--charcoal);background:var(--off-white);line-height:1.6;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(247,246,243,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{font-weight:700;font-size:15px;letter-spacing:0.5px;}
+  .brand span{color:var(--steel-blue);}
+  .nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;}
+  .nav-links a{opacity:0.75;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;color:var(--steel-blue);}
+  .btn-cencon{background:var(--steel-blue);color:#fff;padding:9px 18px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:0.3px;}
+  .btn-cencon:hover{background:var(--steel-blue-dark);}
+  .nav-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;}
+
+  /* HERO */
+  .hero{padding:90px 0 70px;background:
+    linear-gradient(180deg, var(--off-white) 0%, var(--concrete-light) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:flex;gap:48px;align-items:center;}
+  .seals{display:flex;flex-direction:column;gap:14px;flex-shrink:0;}
+  .seal{width:76px;height:76px;border-radius:50%;background:var(--concrete-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;text-align:center;border:3px solid var(--steel-blue);}
+  .seal-img{width:82px;height:82px;border-radius:50%;object-fit:cover;border:3px solid var(--steel-blue);background:#fff;}
+  .eyebrow{color:var(--steel-blue);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+  .hero h1{font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.15;margin-bottom:14px;}
+  .hero h1 .accent{color:var(--steel-blue);}
+  .tagline{font-size:17px;font-style:italic;color:var(--concrete-dark);margin-bottom:14px;}
+  .hero p.desc{font-size:15px;color:#5c5c58;max-width:520px;margin-bottom:26px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{background:var(--steel-blue);color:#fff;padding:12px 22px;border-radius:6px;font-weight:600;font-size:14px;}
+  .btn-primary:hover{background:var(--steel-blue-dark);}
+  .btn-outline{border:1.5px solid var(--concrete-dark);color:var(--charcoal);padding:11px 22px;border-radius:6px;font-weight:600;font-size:14px;}
+  .btn-outline:hover{background:var(--concrete-light);}
+
+  section{padding:70px 0;}
+  .section-title{font-size:26px;font-weight:700;text-align:center;margin-bottom:8px;}
+  .section-sub{text-align:center;color:#6b6b66;font-size:14px;margin-bottom:44px;}
+  .divider{width:56px;height:3px;background:var(--steel-blue);margin:10px auto 0;}
+
+  /* MISSION CARDS */
+  .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .mcard{background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px;}
+  .mcard .icon{width:38px;height:38px;background:var(--steel-blue);color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:18px;}
+  .mcard h3{font-size:16px;margin-bottom:8px;}
+  .mcard p{font-size:14px;color:#5c5c58;}
+
+  /* OFFICE BEARERS */
+  .ob-section{background:var(--concrete-light);}
+  .ob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .ob-card{text-align:center;}
+  .ob-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;border:3px solid #fff;box-shadow:0 0 0 2px var(--line);object-fit:cover;object-position:center 15%;background:var(--steel-blue);color:#fff;}
+  .ob-card .name{font-weight:600;font-size:14px;}
+  .ob-card .role{font-size:12px;color:var(--steel-blue);font-weight:600;}
+  .placeholder-note{grid-column:1/-1;text-align:center;font-size:12px;color:#9a9890;font-style:italic;margin-top:6px;}
+
+  /* EVENTS */
+  .flagship{background:var(--charcoal);color:#fff;border-radius:10px;padding:36px;display:flex;gap:32px;align-items:center;margin-bottom:28px;flex-wrap:wrap;}
+  .flagship-visual{flex:1;min-width:240px;height:180px;border-radius:8px;background:linear-gradient(135deg,#2F5C8A,#1a2f45);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-size:14px;color:#9fc3e8;letter-spacing:1px;}
+  .flagship-body{flex:1.3;min-width:260px;}
+  .badge{display:inline-block;background:var(--steel-blue);font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:0.5px;margin-bottom:12px;}
+  .flagship-body h3{font-size:26px;margin-bottom:10px;}
+  .flagship-body p{font-size:14px;color:#cfcfcc;margin-bottom:14px;}
+  .flagship-body ul{list-style:none;margin-bottom:18px;}
+  .flagship-body li{font-size:13.5px;margin-bottom:6px;color:#e5e5e2;}
+  .flagship-body li::before{content:"✓ ";color:#39a370;}
+  .btn-soon{display:inline-block;background:#5a5a55;color:#fff;padding:11px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:default;letter-spacing:0.3px;}
+
+  .past-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .past-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px;}
+  .past-card h4{font-size:15px;margin-bottom:6px;}
+  .past-card p{font-size:13px;color:#6b6b66;}
+
+  /* ACHIEVEMENTS */
+  .ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .ach-card{background:#fff;border:1px dashed #b9b6ac;border-radius:8px;padding:20px;display:flex;gap:14px;align-items:flex-start;}
+  .ach-card .icon{width:34px;height:34px;background:var(--concrete-dark);color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;}
+  .ach-card h4{font-size:14.5px;margin-bottom:4px;}
+  .ach-card p{font-size:12.5px;color:#8a887f;font-style:italic;}
+
+  /* CONTACT */
+  .contact-section{background:var(--concrete-light);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;}
+  .contact-info h3{font-size:20px;margin-bottom:10px;}
+  .contact-info p.lead{font-size:14px;color:#5c5c58;margin-bottom:20px;}
+  .cline{display:flex;gap:10px;font-size:14px;margin-bottom:12px;align-items:flex-start;}
+  .cline .ic{color:var(--steel-blue);font-weight:700;}
+  form{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;}
+  .form-row{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
+  .form-row > div{flex:1;min-width:180px;}
+  label{display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:#5c5c58;}
+  input,textarea{width:100%;border:1px solid var(--line);border-radius:5px;padding:10px 12px;font-size:14px;font-family:inherit;}
+  textarea{min-height:90px;resize:vertical;}
+  .btn-submit{background:var(--charcoal);color:#fff;border:none;padding:12px 22px;border-radius:6px;font-weight:600;font-size:14px;cursor:pointer;width:100%;}
+  .btn-submit:hover{background:#000;}
+
+  footer{background:var(--charcoal);color:#c9c8c3;padding:36px 0;font-size:13px;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .footer-grid .fbrand{font-weight:700;color:#fff;font-family:'Space Grotesk';}
+  .footer-links{display:flex;gap:36px;flex-wrap:wrap;}
+  .footer-links h5{color:#fff;font-size:12px;margin-bottom:10px;letter-spacing:0.5px;}
+  .footer-links a{display:block;color:#a9a8a3;margin-bottom:6px;font-size:12.5px;}
+  .footer-links a:hover{color:#fff;}
+  .copyright{margin-top:24px;padding-top:18px;border-top:1px solid #444;font-size:12px;color:#8a8983;}
+
+  @media(max-width:800px){
+    .nav-links{display:none;}
+    .hero-grid{flex-direction:column;align-items:flex-start;}
+    .mission-grid,.ob-grid,.past-grid,.ach-grid,.contact-grid{grid-template-columns:1fr;}
+    .ob-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand" style="display:flex;align-items:center;gap:10px;"><img src="images/cea-logo.jpg" alt="CEA" style="width:32px;height:32px;border-radius:50%;object-fit:cover;">CEA <span>ACGCET</span></div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#office-bearers">Office Bearers</a>
+      <a href="#events">Events</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#events" class="btn-cencon">CENCON'26</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="seals">
+      <img class="seal-img" src="images/college-logo.jpg" alt="ACGCET Emblem">
+      <img class="seal-img" src="images/cea-logo.jpg" alt="CEA Logo">
+    </div>
+    <div>
+      <div class="eyebrow">Established for Excellence</div>
+      <h1>Civil Engineering Association,<br><span class="accent">ACGCET</span></h1>
+      <p class="tagline">"Where idealism meets Reality"</p>
+      <p class="desc">Building the foundation of excellence — fostering technical precision, structural insight, and professional integrity in the next generation of civil engineers.</p>
+      <div class="hero-ctas">
+        <a href="#about" class="btn-primary">Explore Initiatives →</a>
+        <a href="#events" class="btn-outline">View Calendar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="section-title">The Blueprint of CEA</h2>
+    <div class="divider"></div><br>
+    <div class="mission-grid">
+      <div class="mcard">
+        <div class="icon">◆</div>
+        <h3>Core Mission</h3>
+        <p>To provide a platform where theory meets structural reality. We bridge the gap between classroom learning and industrial demands through workshops, seminars, and site visits.</p>
+      </div>
+      <div class="mcard">
+        <div class="icon">⚒</div>
+        <h3>Technical Prowess</h3>
+        <p>Specializing in structural analysis, hydraulics, and geotechnical advancements — driving innovation in sustainable construction and modern infrastructure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ob-section" id="office-bearers">
+  <div class="wrap">
+    <h2 class="section-title">Office Bearers 2026–27</h2>
+    <div class="divider"></div><br>
+    <div class="ob-grid">
+      <div class="ob-card"><img class="ob-avatar" src="images/prasanth.png" alt="Prasanth"><div class="name">Prasanth</div><div class="role">Secretary</div></div>
+      <div class="ob-card"><img class="ob-avatar" src="images/yoga.png" alt="Yoga"><div class="name">Yoga</div><div class="role">Joint Secretary</div></div>
+      <div class="ob-card"><img class="ob-avatar" src="images/gokulakannan.png" alt="Gokulakannan"><div class="name">Gokulakannan</div><div class="role">Treasurer</div></div>
+      <div class="ob-card"><img class="ob-avatar" src="images/yasotha.png" alt="Yasotha Valli"><div class="name">Yasotha Valli</div><div class="role">Treasurer</div></div>
+      <div class="ob-card"><img class="ob-avatar" src="images/vetha.png" alt="Vetha Tharsana"><div class="name">Vetha Tharsana</div><div class="role">Design Lead</div></div>
+      <div class="ob-card"><img class="ob-avatar" src="images/ahilan.png" alt="Ahilan"><div class="name">Ahilan</div><div class="role">Design Lead</div></div>
+      <div class="ob-card"><img class="ob-avatar" src="images/vigneshwaran.png" alt="Vigneshwaran"><div class="name">Vigneshwaran</div><div class="role">Event Lead</div></div>
+      <div class="ob-card"><img class="ob-avatar" src="images/mahalakshmi.png" alt="Mahalakshmi"><div class="name">Mahalakshmi</div><div class="role">Event Lead</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="wrap">
+    <h2 class="section-title">Events &amp; Initiatives</h2>
+    <p class="section-sub">Tracking our milestones in knowledge sharing and technical display.</p>
+    <div class="flagship">
+      <div class="flagship-visual">[ Event Visual ]</div>
+      <div class="flagship-body">
+        <span class="badge">FLAGSHIP SYMPOSIUM</span>
+        <h3>CENCON'26</h3>
+        <p>The department's first inter-level symposium, commencing September 29. Four technical and four non-technical events, including Paper Presentation and a hands-on Workshop, with more to be announced.</p>
+        <ul>
+          <li>Paper Presentation</li>
+          <li>Workshop</li>
+          <li>+ more technical &amp; non-technical events</li>
+        </ul>
+        <span class="btn-soon">Website Coming Soon</span>
+      </div>
+    </div>
+    <div class="past-grid">
+      <div class="past-card"><h4>Intra-Level Symposiums</h4><p>Technical symposiums conducted within the department, building the foundation for CENCON'26.</p></div>
+      <div class="past-card"><h4>Workshops &amp; Seminars</h4><p>Skill-focused sessions run for the department's students.</p></div>
+      <div class="past-card"><h4>Site Visits</h4><p>Industrial and field visits connecting classroom learning to practice.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <h2 class="section-title">Milestones of Excellence</h2>
+    <div class="divider"></div><br>
+    <div class="ach-grid">
+      <div class="ach-card"><div class="icon">★</div><div><h4>[ Add real achievement ]</h4><p>Placeholder — replace with a verified fact before publishing</p></div></div>
+      <div class="ach-card"><div class="icon">★</div><div><h4>[ Add real achievement ]</h4><p>Placeholder — replace with a verified fact before publishing</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <h3>Let's Build Together</h3>
+      <p class="lead">Have questions about our association or upcoming events? Reach out to the structural heart of the department.</p>
+      <div class="cline"><span class="ic">⌂</span><span>Department of Civil Engineering, ACGCET, Karaikudi – 630003</span></div>
+      <div class="cline"><span class="ic">◎</span><span>Instagram: @civil_asso_acgcet</span></div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Form is a design placeholder — connect it to a Google Form or email link before launch.');">
+      <div class="form-row">
+        <div><label>Name</label><input type="text" placeholder="Engineering Candidate"></div>
+        <div><label>Email</label><input type="email" placeholder="name@acgcet.edu"></div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label>Message</label>
+        <textarea placeholder="How can we collaborate?"></textarea>
+      </div>
+      <button class="btn-submit" type="submit">Dispatch Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="fbrand">CEA ACGCET</div>
+    <div class="footer-links">
+      <div>
+        <h5>RESOURCES</h5>
+        <a href="#">Department Site</a>
+        <a href="#">ACGCET Portal</a>
+      </div>
+      <div>
+        <h5>SOCIAL</h5>
+        <a href="https://instagram.com/civil_asso_acgcet" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap copyright">© 2026 Civil Engineering Association, ACGCET. Built for structural and technical impact.</div>
+</footer>
+
+</body>
+</html>
